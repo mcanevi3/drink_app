@@ -18,10 +18,11 @@ flutter pub get
 ```
 
 # deploy
- % flutter build ios --release
+flutter build ios --release
+open ios/Runner.xcworkspace
 
- # sqflite error ios deploy
- cd ios
+# sqflite error ios deploy
+cd ios
 pod install
 cd ..
 flutter run
