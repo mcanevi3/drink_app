@@ -13,9 +13,7 @@ class DrinkTrackerApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromARGB(255, 43, 43, 43),
         appBarTheme: AppBarTheme(backgroundColor: Colors.blueGrey),
-        drawerTheme: DrawerThemeData(
-          backgroundColor: Colors.blueGrey,
-        ),
+        drawerTheme: DrawerThemeData(backgroundColor: Colors.blueGrey),
       ),
     );
   }

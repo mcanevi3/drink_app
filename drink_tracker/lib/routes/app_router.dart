@@ -9,13 +9,15 @@ class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) =>
-            const ScaffoldedRoute(title: 'Home', child: HomePage()),
+        builder:
+            (context, state) =>
+                const ScaffoldedRoute(title: 'Home', child: HomePage()),
       ),
       GoRoute(
         path: '/settings',
-        builder: (context, state) =>
-            const ScaffoldedRoute(title: 'Settings', child: SettingsPage()),
+        builder:
+            (context, state) =>
+                const ScaffoldedRoute(title: 'Settings', child: SettingsPage()),
       ),
     ],
   );
