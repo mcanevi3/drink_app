@@ -13,3 +13,4 @@ class ScaffoldedRoute extends StatelessWidget {
     return BaseScaffold(title: title, body: child);
   }
 }
+

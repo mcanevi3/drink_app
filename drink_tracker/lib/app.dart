@@ -1,4 +1,6 @@
+import 'package:drink_tracker/providers/item_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'routes/app_router.dart';
 
 class DrinkTrackerApp extends StatelessWidget {
@@ -6,14 +8,19 @@ class DrinkTrackerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Drink Tracker',
-      routerConfig: AppRouter.router,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 43, 43, 43),
-        appBarTheme: AppBarTheme(backgroundColor: Colors.blueGrey),
-        drawerTheme: DrawerThemeData(backgroundColor: Colors.blueGrey),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ItemProvider()..loadItems()),
+      ],
+      child: MaterialApp.router(
+        title: 'Drink Tracker',
+        routerConfig: AppRouter.router,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          // scaffoldBackgroundColor: const Color.fromARGB(255, 43, 43, 43),
+          // appBarTheme: AppBarTheme(backgroundColor: Colors.blueGrey),
+          // drawerTheme: DrawerThemeData(backgroundColor: Colors.blueGrey),
+        ),
       ),
     );
   }
