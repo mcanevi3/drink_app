@@ -25,6 +25,14 @@ class BaseScaffold extends StatelessWidget {
             const DrawerHeader(child: Text('Menu')),
             ListTile(title: const Text('Home'), onTap: () => context.go('/')),
             ListTile(
+              title: const Text('Coffee List'),
+              onTap: () => context.go('/coffee_list'),
+            ),
+             ListTile(
+              title: const Text('Add Coffee'),
+              onTap: () => context.go('/coffee_add'),
+            ),
+            ListTile(
               title: const Text('Settings'),
               onTap: () => context.go('/settings'),
             ),

@@ -1,4 +1,4 @@
-import 'package:drink_tracker/providers/item_provider.dart';
+import 'package:drink_tracker/providers/coffee_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'routes/app_router.dart';
@@ -10,7 +10,7 @@ class DrinkTrackerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ItemProvider()..loadItems()),
+        ChangeNotifierProvider(create: (_) => CoffeeProvider()..loadItems()),
       ],
       child: MaterialApp.router(
         title: 'Drink Tracker',

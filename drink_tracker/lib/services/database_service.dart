@@ -1,11 +1,12 @@
 // services/database_service.dart
+import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-class DatabaseService {
-  static final DatabaseService _instance = DatabaseService._internal();
-  factory DatabaseService() => _instance;
-  DatabaseService._internal();
+class CoffeeService {
+  static final CoffeeService _instance = CoffeeService._internal();
+  factory CoffeeService() => _instance;
+  CoffeeService._internal();
 
   Database? _db;
 
@@ -20,13 +21,15 @@ class DatabaseService {
     return await openDatabase(
       path,
       version: 1,
-      onCreate: (db, version) {
-        db.execute('''
-          CREATE TABLE items (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT
-          )
-        ''');
+      onCreate: (db, version) async {
+        final sqlScript = await rootBundle.loadString('assets/sql/coffee_table.sql');
+        final statements = sqlScript
+            .split(';')
+            .map((stmt) => stmt.trim())
+            .where((stmt) => stmt.isNotEmpty);
+        for (var stmt in statements) {
+          await db.execute(stmt);
+        }
       },
     );
   }
